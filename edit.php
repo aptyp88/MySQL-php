@@ -4,7 +4,7 @@ $id = isset($_GET['id'])? $_GET['id'] : '';
 $pz = $pdo -> prepare('SELECT * FROM books WHERE id = ?');
 $pz -> execute([$id]);
 $book = $pz->fetch(PDO::FETCH_OBJ);
-print_r($book);
+// print_r($book);
 
 ?>
 
@@ -25,26 +25,35 @@ print_r($book);
 
 
 <form method="POST" action="index.php" class="add">
+    <input type="hidden" name="action" value="update">
+    <input type="hidden" name="id" value="<?=$book->id?>">
     <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name">
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name" value="<?=$book->name?>">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Price</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price">
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price" value="<?=$book->price?>">
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="new">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="new" <?php if($book->new == 1){echo 'checked';} ?>>
         <label class="form-check-label" for="exampleCheck1">New</label>
     </div>
     <label for="exampleFormControlSelect1">Themes</label>
     <select class="form-control" id="exampleFormControlSelect1" name="themes">
-        <option>theme</option>
+        <?php
+            $themes = getThemes();
+            foreach($themes as $theme): ?>
+        <option <?php if($theme == $book->themes){echo 'selected';}?>><?= $theme ?></option>
+        <?php endforeach ?>
     </select>
-
     <label for="exampleFormControlSelect1">Category</label>
     <select class="form-control" id="exampleFormControlSelect1" name="category">
-        <option>category</option>
+    <?php
+        $category = getCategory();
+        foreach ($category as $cat) : ?>
+        <option <?php if($cat == $book->category){echo 'selected';}?>><?=$cat?></option>
+        <?php endforeach ?>
     </select>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -21,7 +21,7 @@ function getCategory()
     $sql = 'SELECT DISTINCT category FROM books WHERE category IS NOT NULL';
     $res = $pdo -> query($sql);
     return $res -> fetchAll(PDO::FETCH_COLUMN);
-}   
+}
 
 function insertBook()
 {
@@ -60,7 +60,18 @@ function deleteBook()
     // echo $id;
 }
 
-function editBook()
+function updateBook($_id)
 {
-
+    $id = $_id;
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $price = isset($_POST['price']) ? $_POST['price'] : '';
+    $new = isset($_POST['new']) ? 1 : 0;
+    $themes = isset($_POST['themes']) ? $_POST['themes'] : '';
+    $category = isset($_POST['category']) ? $_POST['category'] : '';
+    global $pdo;
+    $query = "UPDATE books SET name = '$name', price = '$price', new = '$new',
+        themes = '$themes', category = '$category'  WHERE id = $id";
+    $pz = $pdo -> prepare($query);
+    $pz -> execute();
+    // echo $query;
 }

@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #007bff;
+}
+
+a{
+    text-decoration: none;
+}
+
+table{
+    margin: 10px auto;
+}
+
+button{
+    
+}
+
+.add{
+    width: 40%;
+    margin: 30px auto;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+.display-4{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.th{
+    color: #007bff;
+}
+
+.fa-plus{
+    font-size: 38px;
+    margin: 10px 50%;
+    color: rgb(0, 177, 29);
+    font-weight: bold;
+    text-decoration: none;  
+}
+
+.fa-edit{
+    color: green;
+    margin: 5px 8px;
+    font-size: 18px;
+}
+
+.fa-trash-alt{
+    color: red;
+    margin: 5px 8px;
+    font-size: 18px;
+}
+
+.fa-plus:hover{
+    color: rgb(8, 247, 0);
+    text-decoration: none; 
+}
+
+.fa-edit:hover{
+    color: rgb(33, 107, 33);
+    text-decoration: none;
+}
+
+.fa-trash-alt:hover{
+    color: rgb(192, 45, 45);
+    text-decoration: none;
+}

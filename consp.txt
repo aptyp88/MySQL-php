@@ -1,0 +1,7 @@
+$res = mysqli_query('select');
+
+$m = new mysqli();
+$m->query('');
+
+PDO
+

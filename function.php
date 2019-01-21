@@ -60,9 +60,11 @@ function deleteBook()
     // echo $id;
 }
 
-function updateBook($_id)
+function updateBook()
 {
-    $id = $_id;
+//    $id = $_id;
+    $id = $_POST['id'];
+
     $name = isset($_POST['name']) ? $_POST['name'] : '';
     $price = isset($_POST['price']) ? $_POST['price'] : '';
     $new = isset($_POST['new']) ? 1 : 0;

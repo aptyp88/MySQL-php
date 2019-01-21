@@ -28,8 +28,7 @@ if(isset($_POST['action']) && $_POST['action']=='delete')
 
 if(isset($_POST['action']) && $_POST['action']=='update')
 {
-    $_id = $_POST['id'];
-    updateBook($_id);
+    updateBook();
 }
 //$sql = 'SELECT * FROM books LIMIT 0, 10';
 //$result = $pdo -> query($sql);
